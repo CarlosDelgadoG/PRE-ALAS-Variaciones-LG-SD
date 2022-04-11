@@ -21,4 +21,30 @@ output:
 # Estudio Longitudinal Social de Chile
 
 * Es un proyecto del Centro de Estudios de Conflicto y Cohesión Social (COES)
-* Aplicado desde el 2016 hasta hoy 
+* Aplicado desde el 2016 hasta hoy <sup>1</sup> .
+* Incluye varios módulos
+* Cerca de 3000 observaciones y más de 200  variables
+
+
+.footnote[
+
+[1] El año 2020 no se realizó la quinta medición debido a la pandemia]
+
+---
+
+# Sobre la escala Patient Health Questionnaire 9
+
+* Diseñada para ser una medida de severidad y detección de una sintomatología depresiva
+
+---
+
+# Datos sobre Sintomatología Depresiva en Chile
+
+* Usando datos ELSOC
+
+---
+
+# Variaciones longitudinales en la sintomatología depresiva
+
+## Puntajes PHQ-9 de los participantes ELSOC
+
