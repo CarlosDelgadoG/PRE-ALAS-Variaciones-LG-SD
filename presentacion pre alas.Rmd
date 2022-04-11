@@ -1,0 +1,24 @@
+---
+title: "Variaciones longitudinales de la sintomatología depresiva"
+subtitle: "XI Congreso Chileno de Sociología"
+author: "Carlos Delgado G"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+---
+
+# Sobre la investigación
+
+* Proyecto de MG Estadística
+* Datos
+* Estado actual
+
+---
+
+# Estudio Longitudinal Social de Chile
+
+* Es un proyecto del Centro de Estudios de Conflicto y Cohesión Social (COES)
+* Aplicado desde el 2016 hasta hoy 
