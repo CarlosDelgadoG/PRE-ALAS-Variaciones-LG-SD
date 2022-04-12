@@ -1,0 +1,174 @@
+---
+title: "Variaciones longitudinales de la sintomatología depresiva"
+subtitle: "XI Congreso Chileno de Sociología"
+author: "Carlos Delgado G"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message=FALSE,warning=FALSE,
+                      fig.asp = 9/16,
+                      fig.align = 'center',
+                      out.width = "95%",
+                      dpi= 300)
+library(MASS)
+library(tidyverse)
+library(readxl)
+library(broom)
+library(lme4)
+library(viridis)
+library(mgcv)
+
+```
+
+
+```{r}
+base_long <- readRDS("DATOS/base_long_reco.RDS")
+muestra_1 <- readRDS("DATOS/muestra_1.RDS")
+el_16 <- readRDS("DATOS/elsoc_16.RDS")
+
+
+```
+
+```{r}
+source("FUNCIONES/FUNCIONES.R", encoding = 'UTF-8')
+
+```
+
+```{r}
+var_pred <- read_excel("MODELOS/variables predictoras.xlsx")
+```
+
+
+```{r}
+base_modelos <- select(el_16, s11_phq9,s11_phq9_bin,!!var_pred$Variable)%>%
+                drop_na()
+```
+
+
+# Sobre la investigación
+
+* Proyecto de MG Estadística
+* Datos
+* Estado actual
+
+---
+
+# Estudio Longitudinal Social de Chile
+
+* Es un proyecto del Centro de Estudios de Conflicto y Cohesión Social (COES)
+* Aplicado desde el 2016 hasta hoy <sup>1</sup> .
+* Incluye varios módulos
+* Cerca de 3000 observaciones y más de 200  variables
+
+
+.footnote[
+
+[1] El año 2020 no se realizó la quinta medición debido a la pandemia]
+
+---
+
+# Sobre la escala Patient Health Questionnaire 9
+
+* Diseñada para ser una medida de severidad y detección de una sintomatología depresiva
+
+---
+
+# Datos sobre Sintomatología Depresiva en Chile
+
+* Usando datos ELSOC
+
+---
+
+# Variaciones longitudinales en la sintomatología depresiva
+
+### Puntajes PHQ-9 de los participantes ELSOC
+---
+
+### Según Género del entrevistado
+
+```{r}
+grafo_media('m0_sexo_fac')
+```
+
+
+
+---
+
+### Según actividad ocupacional del entrevistado
+
+```{r}
+grafo_media('m02_fac')
+```
+
+---
+
+### Interacción con género
+
+```{r}
+grafo_mediacion(muestra_1,'m02_fac','m0_sexo_fac')
+```
+
+Acá se muestra la proporción de personas con puntajes mayores o iguales a 10 (Referencia, mejor sensitividad para detectar )
+
+---
+
+### Según nivel educacional
+
+```{r}
+grafo_media('m01_fac')
+```
+
+---
+
+### Según tramo etario del entrevistado
+
+```{r}
+grafo_media('m0_edad_fac')
+```
+
+---
+
+### Según Tramo IMC del entrevistado
+
+```{r}
+grafo_media('s_imc_fac')
+```
+
+---
+
+### Según frecuencia de actividad física del entrevistado
+
+```{r}
+grafo_media('s04_fac')
+```
+
+---
+
+### Según frecuencia para hablar de problemas con familiares o amigos
+
+```{r}
+grafo_media('s12_fac')
+```
+
+---
+
+# Opciones de modelamiento
+
+* El modelo normal
+* Regresión Logística (Puntajes $\geq 10$)
+* Regresión Binomial
+* Regresión Multinomial Ordinal (Sobre $4$ categorías de severidad o la escala completa)
+
+---
+
+# Limitaciones
+
+* Datos Faltantes
+* Correlación de observaciones por diseño muestral
+* Distintas probabilidades de selección de las observaciones
