@@ -88,6 +88,28 @@ base_modelos <- select(el_16, s11_phq9,s11_phq9_bin,!!var_pred$Variable)%>%
 # Variaciones longitudinales en la sintomatología depresiva
 
 ### Puntajes PHQ-9 de los participantes ELSOC
+
+---
+
+# Frecuencia relativa de los puntajes PHQ-9 observados
+
+```{r}
+muestra_1%>%
+  group_by(ola,phq=factor(s11_phq9))%>%
+  summarise(n=n())%>%
+  mutate(prop=100*n/1913)%>%
+  drop_na()%>%
+  ggplot(aes(x=phq,y=prop,color=ola,group=ola))+
+  geom_point()+
+  geom_line()+
+  labs(y="Proporción",
+       x="Puntaje PHQ-9",
+       color="Año de Estudio")+
+  theme_classic()+
+  theme(legend.position = "top")+
+   scale_color_viridis(discrete = TRUE,option = "D")
+```
+
 ---
 
 ### Según Género del entrevistado
