@@ -75,7 +75,10 @@ base_modelos <- select(el_16, s11_phq9,s11_phq9_bin,!!var_pred$Variable)%>%
 
 # Sobre la escala Patient Health Questionnaire 9
 
-* Diseñada para ser una medida de severidad y detección de una sintomatología depresiva
+* Diseñada para ser una medida de severidad y detección de la sintomatología depresiva depresiva de un paciente.
+* Mide la persistencia en dos semanas de 9 items
+* Los ítems reflejan los síntomas del DSM-IV
+* Puede modelarse ocupando la *escala completa*, puntajes  *mayores o iguales a 10*, o *cuatro categorías de severidad* (Depresión Mínima, Depresión Media, Depresión Moderada, Depresión Severa)
 
 ---
 
@@ -84,14 +87,42 @@ base_modelos <- select(el_16, s11_phq9,s11_phq9_bin,!!var_pred$Variable)%>%
 * Usando datos ELSOC
 
 ---
-
 # Variaciones longitudinales en la sintomatología depresiva
 
-### Puntajes PHQ-9 de los participantes ELSOC
 
 ---
 
-# Frecuencia relativa de los puntajes PHQ-9 observados
+### Sobre los ítems de la escala PHQ-9 I
+
+```{r}
+grafo_long(c("s11_01_rec","s11_02_rec","s11_03_rec"), c("Poco interés en cosas","Sentirse deprimido","Problemas sueño"))
+```
+
+Los tres primeros items son (1) *Poco interés o placer en hacer las cosas*, (2) *Se ha sentido decaído(a), deprimido(a),o sin esperanzas*, y (3) *Dificultad para dormir o permanecer dormido(a), o ha dormido demasiado*.
+
+---
+
+### Sobre los ítems de la escala PHQ-9 II
+
+```{r}
+grafo_long(c("s11_04_rec","s11_05_rec","s11_06_rec"), c("Poca energía","Problemas apetito","Sentirse mal consigo mismo"))
+```
+
+Los items del cuarto al sexto son (4) *Se ha sentido cansado(a) o con poca energía*, (5) *Con poco apetito o ha comido en exceso*, y (6) *Se ha sentido mal con usted mismo(a)- o que es un fracaso o que ha quedado mal con usted mismo(a) o con su familia*.
+
+---
+
+### Sobre los ítems de la escala PHQ-9 III
+
+```{r}
+grafo_long(c("s11_07_rec","s11_08_rec","s11_09_rec"), c("Dificultad concentración","Inquietitud o sentirse lento","Pensar en dañarse"))
+```
+
+Los últimos tres items de la escala son (7) *Ha tenido dificultad para concentrarse en cosas tales como leer el periódico o ver televisión* y (8) *¿Se ha estado moviendo o hablando tan lento que otras personas podrían notarlo?, o por el contrario- ha estado tan inquieto(a) o agitado(a), que se ha estado moviendo mucho más de lo normal* y finalmente (9) *Ha pensado que estaría mejor muerto(a) o se le ha ocurrido lastimarse de alguna manera*. 
+
+---
+
+# Puntajes PHQ-9 globales
 
 ```{r}
 muestra_1%>%
@@ -109,6 +140,19 @@ muestra_1%>%
   theme(legend.position = "top")+
    scale_color_viridis(discrete = TRUE,option = "D")
 ```
+
+---
+
+### Diferencias en la sintomatología depresiva de los partcipantes ELSOC
+
+Nos centraremos en tres aspectos principales:
+
+* **Socioeconómica**:
+  * *Género*, *Actividad Ocupacional*, *Nivel Educacional*. 
+* **Salud Física**:
+  * *Edad*, *Índice de Masa Corporal*, *Actividad física.*
+* **Apoyo Social**:
+  * *Frecuencia para hablar problemas con amigos o familiares*.
 
 ---
 
@@ -182,10 +226,10 @@ grafo_media('s12_fac')
 
 # Opciones de modelamiento
 
-* El modelo normal
+* Regresión Lineal Normal
 * Regresión Logística (Puntajes $\geq 10$)
 * Regresión Binomial
-* Regresión Multinomial Ordinal (Sobre $4$ categorías de severidad o la escala completa)
+* Regresión Multinomial Ordinal (Sobre $4$ categorías de severidad)
 
 ---
 
@@ -194,3 +238,15 @@ grafo_media('s12_fac')
 * Datos Faltantes
 * Correlación de observaciones por diseño muestral
 * Distintas probabilidades de selección de las observaciones
+
+---
+
+# Conclusiones
+
+* Existen opciones interesantes para modelar las trayectorias de sintomatología depresiva en Chile
+* La escala PHQ-9 entrega distintas posibilidades de modelamiento.
+* Datos parecen mostrar que las diferencias entre entrevistados se da más en los valores iniciales, pero estas se disipan en el tiempo (Regresión a la media).
+* Para ocupar plenamente el poder de ELSOC, se requiere un adecuado tratamiento de los datos faltantes
+* Para hacer una buena estimación poblacional se requiere tratar el diseño muestral complejo y las probabilidades de selección de los entrevistados
+---
+---
