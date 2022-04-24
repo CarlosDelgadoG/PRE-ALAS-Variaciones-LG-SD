@@ -24,52 +24,58 @@ library(lme4)
 library(viridis)
 library(mgcv)
 
-```
-
-
-```{r}
 base_long <- readRDS("DATOS/base_long_reco.RDS")
 muestra_1 <- readRDS("DATOS/muestra_1.RDS")
 el_16 <- readRDS("DATOS/elsoc_16.RDS")
-
-
-```
-
-```{r}
 source("FUNCIONES/FUNCIONES.R", encoding = 'UTF-8')
 
-```
-
-```{r}
 var_pred <- read_excel("MODELOS/variables predictoras.xlsx")
-```
 
-
-```{r}
 base_modelos <- select(el_16, s11_phq9,s11_phq9_bin,!!var_pred$Variable)%>%
                 drop_na()
 ```
 
 
-# Sobre la investigación
 
-* Proyecto de MG Estadística
+# Presentación Personal
+
+* Proyecto de Magíster Estadística
 * Datos
 * Estado actual
+* Presentación de hoy: *Análisis exploratorio, primeros resultados de modelos sobre la sintomatollogía depresiva en el estudio ELSOC*
+
+---
+# Motivación I
+* Estimación OMS
+* Licencias Médicas
+* Depresión significa una alta carga, financiera, sufrimiento y la discapacidad que genera en ambientes, laborales, educacionales y         cotidianos.
+* Podemos pensar la sintomatología depresiva como un indicador del estrés sicosocial que afecta a una comunidad en un momento determinado. 
+---
+
+# Motivación II
+
+* Se hace urgente **caracterizar** las distintas maneras que hay de experimentar la sintomatología depresiva. No sólo entre grupos de personas, sino dentro de la misma persona en distintas 
 
 ---
 
 # Estudio Longitudinal Social de Chile
+
+.pull-left[
 
 * Es un proyecto del Centro de Estudios de Conflicto y Cohesión Social (COES)
 * Aplicado desde el 2016 hasta hoy <sup>1</sup> .
 * Incluye varios módulos
 * Cerca de 3000 observaciones y más de 200  variables
 
+]
 
-.footnote[
+.pull-right[
+.center[![imagen](IMAGENES/elsoc_I.png)]
+]
 
-[1] El año 2020 no se realizó la quinta medición debido a la pandemia]
+
+
+.footnote[[1] El año 2020 no se realizó la quinta medición debido a la pandemia]
 
 ---
 
@@ -79,12 +85,6 @@ base_modelos <- select(el_16, s11_phq9,s11_phq9_bin,!!var_pred$Variable)%>%
 * Mide la persistencia en dos semanas de 9 items
 * Los ítems reflejan los síntomas del DSM-IV
 * Puede modelarse ocupando la *escala completa*, puntajes  *mayores o iguales a 10*, o *cuatro categorías de severidad* (Depresión Mínima, Depresión Media, Depresión Moderada, Depresión Severa)
-
----
-
-# Datos sobre Sintomatología Depresiva en Chile
-
-* Usando datos ELSOC
 
 ---
 # Variaciones longitudinales en la sintomatología depresiva
@@ -230,6 +230,32 @@ grafo_media('s12_fac')
 * Regresión Logística (Puntajes $\geq 10$)
 * Regresión Binomial
 * Regresión Multinomial Ordinal (Sobre $4$ categorías de severidad)
+
+---
+# Algunos Resultados
+
+```{r}
+var_coefs<- c('Intercepto','Mujer','Trabajo doméstico NR','Jubilado','Desempleado',
+              'AO: Otras Categorías','Educ Media','Educ Técnica','Educ Universitaria',
+              'Edad', 'IMC','Ejercicio Intenso','Ejercicio Frecuente','Apoyo Algunas Veces',
+              'Apoyo Siempre o Casi siempre')
+
+mlg_multi <- readRDS("MODELOS/mlg_multi.RDS")
+mlm_multi <- readRDS("MODELOS/mlm_multi.RDS")
+
+
+```
+
+```{r}
+tabla_mlg <- tibble(coef=c(var_coefs,'Tiempo'),
+       valor=fixef(mlg_multi),
+       error=summary(mlg_multi)$coefficients[,2],
+       sig=summary(mlg_multi)$coefficients[,4] < 0.05)%>%
+      mutate(L=valor-error*qnorm(0.975),
+             U=valor+error*qnorm(0.975))
+```
+
+
 
 ---
 
