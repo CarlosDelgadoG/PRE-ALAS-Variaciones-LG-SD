@@ -190,6 +190,7 @@ Acá se muestra la proporción de personas con puntajes mayores o iguales a 10 (
 grafo_media('m01_fac')
 ```
 
+
 ---
 
 ### Según tramo etario del entrevistado

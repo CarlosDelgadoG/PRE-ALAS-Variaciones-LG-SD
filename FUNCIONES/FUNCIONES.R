@@ -266,20 +266,44 @@ return(ggp)
    return(ggp)
  }
  
- 
- gen_mod <- function(var,mod){
+ gen_mod <- function(var,mod,inter=NULL){
+   if(var ==1){
+     var <- '1'
+   }
+   
    if(mod == 'LG'){
-     mod <- glm(as.formula(paste("s11_phq9_bin",var,sep='~')),family = binomial,data=base_modelos)  
+     ecuacion <- reformulate(response="s11_phq9_bin",termlabels=var)
+     modelo <- glm(ecuacion,family = binomial,data=base_modelos)  
    }
    if(mod=='BIN'){
-     mod <- glm(as.formula(paste("cbind(s11_phq9,27-s11_phq9)",var,sep='~')),family = binomial,data=base_modelos)       
+     ecuacion <-reformulate(response = "cbind(s11_phq9,27-s11_phq9)", termlabels=var) 
+     modelo <- glm(ecuacion,family = binomial,data=base_modelos)       
    }
    if(mod=='PROPM'){
-     mod <- MASS::polr(as.formula(paste("factor(s11_phq9)",var,sep='~')),data = base_modelos)
+     ecuacion <- reformulate(response="s11_phq9_cat",termlabels=var)
+     modelo <- MASS::polr(ecuacion,data = base_modelos)
    }
-   return(mod)
+   if(mod=='LM'){
+     ecuacion <- reformulate(response="s11_phq9",termlabels=var)
+     modelo <- lm(ecuacion,data = base_modelos)
+   }
+   if(mod=='LMM'){
+     if(is.null(inter)){
+       ecuacion <-reformulate(response='s11_phq9',termlabels = c(var_pred$long,'ola_num','(1|idencuesta)'))    
+     }
+     ecuacion <-reformulate(response='s11_phq9',termlabels = c(var_pred$long,'ola_num','(1|idencuesta)',paste('ola_num',inter,sep = '*')))
+     modelo <- lmer(ecuacion, data = bm_long) 
+   }
+   if(mod=='MLG'){
+     ecuacion <-reformulate(response='s11_phq9_bin',termlabels = c(var_pred$long,'ola_num','(1|idencuesta)',paste('ola_num',inter,sep = '*')))
+     modelo <- glmer(ecuacion,family = 'binomial',data = bm_long)
+   }
+   # Hacer explícita la evaluación de la fórmula
+   if((mod != 'LMM')&(mod != 'MLG')){
+     modelo$call$formula = eval(ecuacion)
+   }  
+   
+   return(modelo)
  }
- 
- 
  
  
