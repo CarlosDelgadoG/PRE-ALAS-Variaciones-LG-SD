@@ -41,21 +41,24 @@ bm_long <- select(muestra_1, idencuesta,ola_num,s11_phq9,s11_phq9_bin, !!var_pre
 # Presentación Personal
 
 * Proyecto de Magíster Estadística
-* Datos
-* Estado actual
-* Presentación de hoy: *Análisis exploratorio, primeros resultados de modelos sobre la sintomatollogía depresiva en el estudio ELSOC*
+* Estado actual de la investigación
+* **Motivación de la investigación ** *¿De qué manera inciden los distintos contextos en que se desenvuelven las personas en las diferentes trayectorias de la sintomatología depresiva?*
+* **Presentación de hoy**: *Análisis exploratorio de los datos, primeros análisis de modelamiento sobre  la sintomatología depresiva en el estudio ELSOC*.
 
 ---
-# Motivación I
-* Estimación OMS
-* Licencias Médicas
-* Depresión significa una alta carga, financiera, sufrimiento y la discapacidad que genera en ambientes, laborales, educacionales y         cotidianos.
-* Podemos pensar la sintomatología depresiva como un indicador del estrés sicosocial que afecta a una comunidad en un momento determinado. 
+# Motivación I: ¿Por qué investigar sobre Depresión? 
+* *ENS 2017:* Prevalencia Depresión en el país de 6.2% (Hombres 2.1 % y Mujeres 10.2%).
+* *OPS 2018:* En Chile los trastornos comunes como ansiedad, depresión y autolesiones representan el 50% de la carga de enfermedad en los jóvenes y adultos. 
+* *Vicente et. al 2016:* Depresión mayor ocupa el primer lugar en la discapacidad atribuida en adultos, y es la principal contribuyente a los años vividos con discapacidad.
+* *SIS 2020:* Trastornos mentales es el único grupo diagnóstico que aumenta en el número de licencias tramitadas, en especial las de mediana y larga duración y en el grupo de mujeres entre 35 y 64.
+
 ---
 
-# Motivación II
+# Motivación II: Depresión v/s sintomatología depresiva
 
-* Se hace urgente **caracterizar** las distintas maneras que hay de experimentar la sintomatología depresiva. No sólo entre grupos de personas, sino dentro de la misma persona en distintas 
+* La depresión representa una alta carga en términos financieros, la discapacidad y el sufrimiento que genera.
+* *Jimenez et. al 2020:* La **sintomatología depresiva** nos da un indicio del estrés sicosocial que afecta a una comunidad en un momento determinado. 
+* Se hace urgente **caracterizar** las distintas maneras que hay de experimentar la sintomatología depresiva. No sólo entre grupos de personas, *sino dentro de la misma persona en distintos puntos del tiempo.* 
 
 ---
 
@@ -65,7 +68,7 @@ bm_long <- select(muestra_1, idencuesta,ola_num,s11_phq9,s11_phq9_bin, !!var_pre
 
 * Es un proyecto del Centro de Estudios de Conflicto y Cohesión Social (COES)
 * Aplicado desde el 2016 hasta hoy <sup>1</sup> .
-* Incluye varios módulos
+* Se coompone de siete Módulos (*Salud y Bienestar*).
 * Cerca de 3000 observaciones y más de 200  variables
 
 ]
@@ -83,8 +86,7 @@ bm_long <- select(muestra_1, idencuesta,ola_num,s11_phq9,s11_phq9_bin, !!var_pre
 # Sobre la escala Patient Health Questionnaire 9
 
 * Diseñada para ser una medida de severidad y detección de la sintomatología depresiva depresiva de un paciente.
-* Mide la persistencia en dos semanas de 9 items
-* Los ítems reflejan los síntomas del DSM-IV
+* Mide la persistencia en las últimas dos  semanas de 9 items que reflejan los síntomas del DSM-IV.
 * Puede modelarse ocupando la *escala completa*, puntajes  *mayores o iguales a 10*, o *cuatro categorías de severidad* (Depresión Mínima, Depresión Media, Depresión Moderada, Depresión Severa)
 
 ---
@@ -309,6 +311,10 @@ ggplot(filter(tabla_mlm,!(coef=='Intercepto')),aes(y=coef,x=valor,color=factor(t
   theme_classic()+
     theme(legend.position = 'top')
 ```
+
+---
+
+# Interacciones de las variables y el tiempo
 
 ---
 

@@ -32,21 +32,24 @@ class: center, middle, inverse, title-slide
 # Presentación Personal
 
 * Proyecto de Magíster Estadística
-* Datos
-* Estado actual
-* Presentación de hoy: *Análisis exploratorio, primeros resultados de modelos sobre la sintomatollogía depresiva en el estudio ELSOC*
+* Estado actual de la investigación
+* **Motivación de la investigación ** *¿De qué manera inciden los distintos contextos en que se desenvuelven las personas en las diferentes trayectorias de la sintomatología depresiva?*
+* **Presentación de hoy**: *Análisis exploratorio de los datos, primeros análisis de modelamiento sobre  la sintomatología depresiva en el estudio ELSOC*.
 
 ---
-# Motivación I
-* Estimación OMS
-* Licencias Médicas
-* Depresión significa una alta carga, financiera, sufrimiento y la discapacidad que genera en ambientes, laborales, educacionales y         cotidianos.
-* Podemos pensar la sintomatología depresiva como un indicador del estrés sicosocial que afecta a una comunidad en un momento determinado. 
+# Motivación I: ¿Por qué investigar sobre Depresión? 
+* *ENS 2017:* Prevalencia Depresión en el país de 6.2% (Hombres 2.1 % y Mujeres 10.2%).
+* *OPS 2018:* En Chile los trastornos comunes como ansiedad, depresión y autolesiones representan el 50% de la carga de enfermedad en los jóvenes y adultos. 
+* *Vicente et. al 2016:* Depresión mayor ocupa el primer lugar en la discapacidad atribuida en adultos, y es la principal contribuyente a los años vividos con discapacidad.
+* *SIS 2020:* Trastornos mentales es el único grupo diagnóstico que aumenta en el número de licencias tramitadas, en especial las de mediana y larga duración y en el grupo de mujeres entre 35 y 64.
+
 ---
 
-# Motivación II
+# Motivación II: Depresión v/s sintomatología depresiva
 
-* Se hace urgente **caracterizar** las distintas maneras que hay de experimentar la sintomatología depresiva. No sólo entre grupos de personas, sino dentro de la misma persona en distintas 
+* La depresión representa una alta carga en términos financieros, la discapacidad y el sufrimiento que genera.
+* *Jimenez et. al 2020:* La **sintomatología depresiva** nos da un indicio del estrés sicosocial que afecta a una comunidad en un momento determinado. 
+* Se hace urgente **caracterizar** las distintas maneras que hay de experimentar la sintomatología depresiva. No sólo entre grupos de personas, *sino dentro de la misma persona en distintos puntos del tiempo.* 
 
 ---
 
@@ -56,7 +59,7 @@ class: center, middle, inverse, title-slide
 
 * Es un proyecto del Centro de Estudios de Conflicto y Cohesión Social (COES)
 * Aplicado desde el 2016 hasta hoy &lt;sup&gt;1&lt;/sup&gt; .
-* Incluye varios módulos
+* Se coompone de siete Módulos (*Salud y Bienestar*).
 * Cerca de 3000 observaciones y más de 200  variables
 
 ]
@@ -74,8 +77,7 @@ class: center, middle, inverse, title-slide
 # Sobre la escala Patient Health Questionnaire 9
 
 * Diseñada para ser una medida de severidad y detección de la sintomatología depresiva depresiva de un paciente.
-* Mide la persistencia en dos semanas de 9 items
-* Los ítems reflejan los síntomas del DSM-IV
+* Mide la persistencia en las últimas dos  semanas de 9 items que reflejan los síntomas del DSM-IV.
 * Puede modelarse ocupando la *escala completa*, puntajes  *mayores o iguales a 10*, o *cuatro categorías de severidad* (Depresión Mínima, Depresión Media, Depresión Moderada, Depresión Severa)
 
 ---
@@ -86,7 +88,7 @@ class: center, middle, inverse, title-slide
 
 ### Sobre los ítems de la escala PHQ-9 I
 
-&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-18-1.png" width="95%" style="display: block; margin: auto;" /&gt;
+&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-1-1.png" width="95%" style="display: block; margin: auto;" /&gt;
 
 Los tres primeros items son (1) *Poco interés o placer en hacer las cosas*, (2) *Se ha sentido decaído(a), deprimido(a),o sin esperanzas*, y (3) *Dificultad para dormir o permanecer dormido(a), o ha dormido demasiado*.
 
@@ -94,7 +96,7 @@ Los tres primeros items son (1) *Poco interés o placer en hacer las cosas*, (2)
 
 ### Sobre los ítems de la escala PHQ-9 II
 
-&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-19-1.png" width="95%" style="display: block; margin: auto;" /&gt;
+&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-2-1.png" width="95%" style="display: block; margin: auto;" /&gt;
 
 Los items del cuarto al sexto son (4) *Se ha sentido cansado(a) o con poca energía*, (5) *Con poco apetito o ha comido en exceso*, y (6) *Se ha sentido mal con usted mismo(a)- o que es un fracaso o que ha quedado mal con usted mismo(a) o con su familia*.
 
@@ -102,7 +104,7 @@ Los items del cuarto al sexto son (4) *Se ha sentido cansado(a) o con poca energ
 
 ### Sobre los ítems de la escala PHQ-9 III
 
-&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-20-1.png" width="95%" style="display: block; margin: auto;" /&gt;
+&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-3-1.png" width="95%" style="display: block; margin: auto;" /&gt;
 
 Los últimos tres items de la escala son (7) *Ha tenido dificultad para concentrarse en cosas tales como leer el periódico o ver televisión* y (8) *¿Se ha estado moviendo o hablando tan lento que otras personas podrían notarlo?, o por el contrario- ha estado tan inquieto(a) o agitado(a), que se ha estado moviendo mucho más de lo normal* y finalmente (9) *Ha pensado que estaría mejor muerto(a) o se le ha ocurrido lastimarse de alguna manera*. 
 
@@ -110,7 +112,7 @@ Los últimos tres items de la escala son (7) *Ha tenido dificultad para concentr
 
 # Puntajes PHQ-9 globales
 
-&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-21-1.png" width="95%" style="display: block; margin: auto;" /&gt;
+&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-4-1.png" width="95%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -129,7 +131,7 @@ Nos centraremos en tres aspectos principales:
 
 ### Según Género del entrevistado
 
-&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-22-1.png" width="95%" style="display: block; margin: auto;" /&gt;
+&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-5-1.png" width="95%" style="display: block; margin: auto;" /&gt;
 
 
 
@@ -137,13 +139,13 @@ Nos centraremos en tres aspectos principales:
 
 ### Según actividad ocupacional del entrevistado
 
-&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-23-1.png" width="95%" style="display: block; margin: auto;" /&gt;
+&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-6-1.png" width="95%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 ### Interacción con género
 
-&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-24-1.png" width="95%" style="display: block; margin: auto;" /&gt;
+&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-7-1.png" width="95%" style="display: block; margin: auto;" /&gt;
 
 Acá se muestra la proporción de personas con puntajes mayores o iguales a 10 (Referencia, mejor sensitividad para detectar )
 
@@ -151,32 +153,32 @@ Acá se muestra la proporción de personas con puntajes mayores o iguales a 10 (
 
 ### Según nivel educacional
 
-&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-25-1.png" width="95%" style="display: block; margin: auto;" /&gt;
+&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-8-1.png" width="95%" style="display: block; margin: auto;" /&gt;
 
 
 ---
 
 ### Según tramo etario del entrevistado
 
-&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-26-1.png" width="95%" style="display: block; margin: auto;" /&gt;
+&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-9-1.png" width="95%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 ### Según Tramo IMC del entrevistado
 
-&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-27-1.png" width="95%" style="display: block; margin: auto;" /&gt;
+&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-10-1.png" width="95%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 ### Según frecuencia de actividad física del entrevistado
 
-&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-28-1.png" width="95%" style="display: block; margin: auto;" /&gt;
+&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-11-1.png" width="95%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 ### Según frecuencia para hablar de problemas con familiares o amigos
 
-&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-29-1.png" width="95%" style="display: block; margin: auto;" /&gt;
+&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-12-1.png" width="95%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -195,7 +197,7 @@ Acá se muestra la proporción de personas con puntajes mayores o iguales a 10 (
 
 
 
-&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-32-1.png" width="95%" style="display: block; margin: auto;" /&gt;
+&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-15-1.png" width="95%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -203,7 +205,11 @@ Acá se muestra la proporción de personas con puntajes mayores o iguales a 10 (
 
 
 
-&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-34-1.png" width="95%" style="display: block; margin: auto;" /&gt;
+&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-17-1.png" width="95%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Interacciones de las variables y el tiempo
 
 ---
 
