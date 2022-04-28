@@ -3,10 +3,9 @@
   <head>
     <title>Variaciones longitudinales de la sintomatología depresiva</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Carlos Delgado G" />
-    <script src="libs/header-attrs-2.13/header-attrs.js"></script>
-    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
-    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+    <meta name="author" content="Carlos Delgado G." />
+    <script src="presentacion_pre_alas_files/header-attrs-2.13/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
@@ -19,10 +18,12 @@ class: center, middle, inverse, title-slide
 ## XI Congreso Chileno de Sociología
 ]
 .author[
-### Carlos Delgado G
+### Carlos Delgado G.
 ]
 
 ---
+
+
 
 
 
@@ -33,22 +34,25 @@ class: center, middle, inverse, title-slide
 
 * Proyecto de Magíster Estadística
 * Estado actual de la investigación
-* **Motivación de la investigación ** *¿De qué manera inciden los distintos contextos en que se desenvuelven las personas en las diferentes trayectorias de la sintomatología depresiva?*
 * **Presentación de hoy**: *Análisis exploratorio de los datos, primeros análisis de modelamiento sobre  la sintomatología depresiva en el estudio ELSOC*.
+* **Motivación de la investigación ** *¿De qué manera inciden los distintos contextos en que se desenvuelven las personas en las diferentes trayectorias de sintomatología depresiva observadas en ELSOC?*
 
+.footnote[ **Palabras Clave**: Síntomatología depresiva, PHQ-9, ELSOC, Análisis Longitudinal, Diferencias sociales.]
 ---
 # Motivación I: ¿Por qué investigar sobre Depresión? 
+
 * *ENS 2017:* Prevalencia Depresión en el país de 6.2% (Hombres 2.1 % y Mujeres 10.2%).
 * *OPS 2018:* En Chile los trastornos comunes como ansiedad, depresión y autolesiones representan el 50% de la carga de enfermedad en los jóvenes y adultos. 
 * *Vicente et. al 2016:* Depresión mayor ocupa el primer lugar en la discapacidad atribuida en adultos, y es la principal contribuyente a los años vividos con discapacidad.
-* *SIS 2020:* Trastornos mentales es el único grupo diagnóstico que aumenta en el número de licencias tramitadas, en especial las de mediana y larga duración y en el grupo de mujeres entre 35 y 64.
+* *SIS 2020:* Trastornos mentales es el único grupo diagnóstico que aumenta en el número de licencias tramitadas, en especial las de mediana y larga duración para mujeres entre 35 y 64 años.
 
 ---
 
 # Motivación II: Depresión v/s sintomatología depresiva
 
 * La depresión representa una alta carga en términos financieros, la discapacidad y el sufrimiento que genera.
-* *Jimenez et. al 2020:* La **sintomatología depresiva** nos da un indicio del estrés sicosocial que afecta a una comunidad en un momento determinado. 
+* *Jimenez et. al 2020:* Aparte de la **depresión** como trastorno clínico, la **sintomatología depresiva** nos da un indicio del estrés sicosocial que afecta a una comunidad en un momento determinado.
+* **Sintomatología depresiva** como algo que toda una comunidad padece en cierto grado.
 * Se hace urgente **caracterizar** las distintas maneras que hay de experimentar la sintomatología depresiva. No sólo entre grupos de personas, *sino dentro de la misma persona en distintos puntos del tiempo.* 
 
 ---
@@ -59,7 +63,7 @@ class: center, middle, inverse, title-slide
 
 * Es un proyecto del Centro de Estudios de Conflicto y Cohesión Social (COES)
 * Aplicado desde el 2016 hasta hoy &lt;sup&gt;1&lt;/sup&gt; .
-* Se coompone de siete Módulos (*Salud y Bienestar*).
+* Se coompone de siete Módulos (entre ellos *Salud y Bienestar*).
 * Cerca de 3000 observaciones y más de 200  variables
 
 ]
@@ -76,12 +80,16 @@ class: center, middle, inverse, title-slide
 
 # Sobre la escala Patient Health Questionnaire 9
 
-* Diseñada para ser una medida de severidad y detección de la sintomatología depresiva depresiva de un paciente.
+* Diseñada para ser una medida de severidad y detección de la sintomatología depresiva de un paciente.
 * Mide la persistencia en las últimas dos  semanas de 9 items que reflejan los síntomas del DSM-IV.
-* Puede modelarse ocupando la *escala completa*, puntajes  *mayores o iguales a 10*, o *cuatro categorías de severidad* (Depresión Mínima, Depresión Media, Depresión Moderada, Depresión Severa)
+* Puede modelarse ocupando la *escala completa* (0 a 27), de manera *binaria*  (Puntajes `\(\geq\)` 10), o *cuatro categorías de severidad* (Depresión Mínima, Depresión Media, Depresión Moderada, Depresión Severa)
 
 ---
-# Variaciones longitudinales en la sintomatología depresiva
+
+class: center, middle
+
+# Variaciones longitudinales en la sintomatología depresiva 
+
 
 
 ---
@@ -106,13 +114,20 @@ Los items del cuarto al sexto son (4) *Se ha sentido cansado(a) o con poca energ
 
 &lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-3-1.png" width="95%" style="display: block; margin: auto;" /&gt;
 
-Los últimos tres items de la escala son (7) *Ha tenido dificultad para concentrarse en cosas tales como leer el periódico o ver televisión* y (8) *¿Se ha estado moviendo o hablando tan lento que otras personas podrían notarlo?, o por el contrario- ha estado tan inquieto(a) o agitado(a), que se ha estado moviendo mucho más de lo normal* y finalmente (9) *Ha pensado que estaría mejor muerto(a) o se le ha ocurrido lastimarse de alguna manera*. 
+Los últimos tres items de la escala son: .small[ (7) *Ha tenido dificultad para concentrarse en cosas tales como leer el periódico o ver televisión* , (8) *¿Se ha estado moviendo o hablando tan lento que otras personas podrían notarlo?, o por el contrario- ha estado tan inquieto(a) o agitado(a), que se ha estado moviendo mucho más de lo normal* y finalmente (9) *Ha pensado que estaría mejor muerto(a) o se le ha ocurrido lastimarse de alguna manera.*] 
 
 ---
 
 # Puntajes PHQ-9 globales
 
 &lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-4-1.png" width="95%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Trayectorias empíricas de puntajes PHQ-9
+
+
+&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-5-1.png" width="95%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -123,7 +138,7 @@ Nos centraremos en tres aspectos principales:
 * **Socioeconómica**:
   * *Género*, *Actividad Ocupacional*, *Nivel Educacional*. 
 * **Salud Física**:
-  * *Edad*, *Índice de Masa Corporal*, *Actividad física.*
+  * *Edad*, *Índice de Masa Corporal*, *Frecuencia de actividad física.*
 * **Apoyo Social**:
   * *Frecuencia para hablar problemas con amigos o familiares*.
 
@@ -131,7 +146,7 @@ Nos centraremos en tres aspectos principales:
 
 ### Según Género del entrevistado
 
-&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-5-1.png" width="95%" style="display: block; margin: auto;" /&gt;
+&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-6-1.png" width="95%" style="display: block; margin: auto;" /&gt;
 
 
 
@@ -139,46 +154,46 @@ Nos centraremos en tres aspectos principales:
 
 ### Según actividad ocupacional del entrevistado
 
-&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-6-1.png" width="95%" style="display: block; margin: auto;" /&gt;
+&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-7-1.png" width="95%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 ### Interacción con género
 
-&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-7-1.png" width="95%" style="display: block; margin: auto;" /&gt;
+&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-8-1.png" width="95%" style="display: block; margin: auto;" /&gt;
 
-Acá se muestra la proporción de personas con puntajes mayores o iguales a 10 (Referencia, mejor sensitividad para detectar )
+Acá se muestra la proporción de personas con puntajes mayores o iguales a 10 (Levis et. al, 2019: mejor sensitividad para detectar )
 
 ---
 
 ### Según nivel educacional
 
-&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-8-1.png" width="95%" style="display: block; margin: auto;" /&gt;
+&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-9-1.png" width="95%" style="display: block; margin: auto;" /&gt;
 
 
 ---
 
 ### Según tramo etario del entrevistado
 
-&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-9-1.png" width="95%" style="display: block; margin: auto;" /&gt;
+&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-10-1.png" width="95%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 ### Según Tramo IMC del entrevistado
 
-&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-10-1.png" width="95%" style="display: block; margin: auto;" /&gt;
+&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-11-1.png" width="95%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 ### Según frecuencia de actividad física del entrevistado
 
-&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-11-1.png" width="95%" style="display: block; margin: auto;" /&gt;
+&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-12-1.png" width="95%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 ### Según frecuencia para hablar de problemas con familiares o amigos
 
-&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-12-1.png" width="95%" style="display: block; margin: auto;" /&gt;
+&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-13-1.png" width="95%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -197,46 +212,51 @@ Acá se muestra la proporción de personas con puntajes mayores o iguales a 10 (
 
 
 
-&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-15-1.png" width="95%" style="display: block; margin: auto;" /&gt;
+&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-16-1.png" width="95%" style="display: block; margin: auto;" /&gt;
 
 ---
-
-# Regresión Lineal Mixta
-
-
-
-&lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-17-1.png" width="95%" style="display: block; margin: auto;" /&gt;
-
----
-
 # Interacciones de las variables y el tiempo
 
----
+¿Qué grupos tienen patrones que difieren sistemáticamente del resto de personas?
 
+* **Actividad Ocupacional**: *Otras Categorías* Parten más alto, y suben sus puntajes de manera elevada
+* **Edad**: Factor protector de la edad disminuye a lo largo del estudio
+* **Apoyo Social**: Factor protector de hablar siempre o casi siempre de problemas disminuye con el tiempo
+
+---
 # Limitaciones
 
-* Datos Faltantes
-* Correlación de observaciones por diseño muestral
-* Distintas probabilidades de selección de las observaciones
+* Datos Faltantes (No respuesta al ítem y Atrición).
+* Correlación de observaciones por diseño muestral.
+* Distintas probabilidades de selección de las observaciones (Queremos dar más peso a quienes tenían menos posibilidades de responder).
 
 ---
-
 # Conclusiones
 
 * Existen opciones interesantes para modelar las trayectorias de sintomatología depresiva en Chile
 * La escala PHQ-9 entrega distintas posibilidades de modelamiento.
-* Datos parecen mostrar que las diferencias entre entrevistados se da más en los valores iniciales, pero estas se disipan en el tiempo (Regresión a la media).
-* Para ocupar plenamente el poder de ELSOC, se requiere un adecuado tratamiento de los datos faltantes
-* Para hacer una buena estimación poblacional se requiere tratar el diseño muestral complejo y las probabilidades de selección de los entrevistados
+* Se abre la pregunta *¿Las desigualdades sociales son más fuertes en el punto de partida de las personas?*, o *¿Son más evidentes en cómo las personas cambian en el tiempo?*
+* Para ocupar plenamente el poder de ELSOC se requiere un adecuado tratamiento de los datos faltantes.
+* Para hacer una buena estimación poblacional se requiere tratar el diseño muestral complejo y las probabilidades de selección de los entrevistados.
 ---
----
+
+# Contacto!
+
+.pull-left[
+
+Carlos Delgado González 
+]
+
+.pull-right[
+carlo.delgado@mat.uc.cl
+]
+
+.footnote[[Pueden ver la presentación aquí](link)]
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
-<script>var slideshow = remark.create({
-"highlightStyle": "github",
-"highlightLines": true
-});
+<script>var slideshow = remark.create();
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
 });
@@ -314,24 +334,7 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
       links[i].target = '_blank';
     }
   }
-})();
-// adds .remark-code-has-line-highlighted class to <pre> parent elements
-// of code chunks containing highlighted lines with class .remark-code-line-highlighted
-(function(d) {
-  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
-  const preParents = [];
-  const findPreParent = function(line, p = 0) {
-    if (p > 1) return null; // traverse up no further than grandparent
-    const el = line.parentElement;
-    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
-  };
-
-  for (let line of hlines) {
-    let pre = findPreParent(line);
-    if (pre && !preParents.includes(pre)) preParents.push(pre);
-  }
-  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
-})(document);</script>
+})();</script>
 
 <script>
 slideshow._releaseMath = function(el) {

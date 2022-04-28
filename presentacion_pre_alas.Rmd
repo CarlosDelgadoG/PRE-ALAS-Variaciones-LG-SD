@@ -1,14 +1,25 @@
 ---
 title: "Variaciones longitudinales de la sintomatología depresiva"
 subtitle: "XI Congreso Chileno de Sociología"
-author: "Carlos Delgado G"
+author: "Carlos Delgado G."
 output:
   xaringan::moon_reader:
-    lib_dir: libs
-    nature:
-      highlightStyle: github
-      highlightLines: true
+    css: xaringan-themer.css
 ---
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+
+style_mono_accent(
+  base_color = "#1c5253",
+  header_font_google = google_font("Josefin Sans"),
+  text_font_google   = google_font("Montserrat", "300", "300i"),
+  code_font_google   = google_font("Fira Mono"),
+  extra_css = list(
+  ".small" = list("font-size" = "75%")))
+
+
+```
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, message=FALSE,warning=FALSE,
@@ -42,22 +53,25 @@ bm_long <- select(muestra_1, idencuesta,ola_num,s11_phq9,s11_phq9_bin, !!var_pre
 
 * Proyecto de Magíster Estadística
 * Estado actual de la investigación
-* **Motivación de la investigación ** *¿De qué manera inciden los distintos contextos en que se desenvuelven las personas en las diferentes trayectorias de la sintomatología depresiva?*
 * **Presentación de hoy**: *Análisis exploratorio de los datos, primeros análisis de modelamiento sobre  la sintomatología depresiva en el estudio ELSOC*.
+* **Motivación de la investigación ** *¿De qué manera inciden los distintos contextos en que se desenvuelven las personas en las diferentes trayectorias de sintomatología depresiva observadas en ELSOC?*
 
+.footnote[ **Palabras Clave**: Síntomatología depresiva, PHQ-9, ELSOC, Análisis Longitudinal, Diferencias sociales.]
 ---
 # Motivación I: ¿Por qué investigar sobre Depresión? 
+
 * *ENS 2017:* Prevalencia Depresión en el país de 6.2% (Hombres 2.1 % y Mujeres 10.2%).
 * *OPS 2018:* En Chile los trastornos comunes como ansiedad, depresión y autolesiones representan el 50% de la carga de enfermedad en los jóvenes y adultos. 
 * *Vicente et. al 2016:* Depresión mayor ocupa el primer lugar en la discapacidad atribuida en adultos, y es la principal contribuyente a los años vividos con discapacidad.
-* *SIS 2020:* Trastornos mentales es el único grupo diagnóstico que aumenta en el número de licencias tramitadas, en especial las de mediana y larga duración y en el grupo de mujeres entre 35 y 64.
+* *SIS 2020:* Trastornos mentales es el único grupo diagnóstico que aumenta en el número de licencias tramitadas, en especial las de mediana y larga duración para mujeres entre 35 y 64 años.
 
 ---
 
 # Motivación II: Depresión v/s sintomatología depresiva
 
 * La depresión representa una alta carga en términos financieros, la discapacidad y el sufrimiento que genera.
-* *Jimenez et. al 2020:* La **sintomatología depresiva** nos da un indicio del estrés sicosocial que afecta a una comunidad en un momento determinado. 
+* *Jimenez et. al 2020:* Aparte de la **depresión** como trastorno clínico, la **sintomatología depresiva** nos da un indicio del estrés sicosocial que afecta a una comunidad en un momento determinado.
+* **Sintomatología depresiva** como algo que toda una comunidad padece en cierto grado.
 * Se hace urgente **caracterizar** las distintas maneras que hay de experimentar la sintomatología depresiva. No sólo entre grupos de personas, *sino dentro de la misma persona en distintos puntos del tiempo.* 
 
 ---
@@ -68,7 +82,7 @@ bm_long <- select(muestra_1, idencuesta,ola_num,s11_phq9,s11_phq9_bin, !!var_pre
 
 * Es un proyecto del Centro de Estudios de Conflicto y Cohesión Social (COES)
 * Aplicado desde el 2016 hasta hoy <sup>1</sup> .
-* Se coompone de siete Módulos (*Salud y Bienestar*).
+* Se coompone de siete Módulos (entre ellos *Salud y Bienestar*).
 * Cerca de 3000 observaciones y más de 200  variables
 
 ]
@@ -85,12 +99,16 @@ bm_long <- select(muestra_1, idencuesta,ola_num,s11_phq9,s11_phq9_bin, !!var_pre
 
 # Sobre la escala Patient Health Questionnaire 9
 
-* Diseñada para ser una medida de severidad y detección de la sintomatología depresiva depresiva de un paciente.
+* Diseñada para ser una medida de severidad y detección de la sintomatología depresiva de un paciente.
 * Mide la persistencia en las últimas dos  semanas de 9 items que reflejan los síntomas del DSM-IV.
-* Puede modelarse ocupando la *escala completa*, puntajes  *mayores o iguales a 10*, o *cuatro categorías de severidad* (Depresión Mínima, Depresión Media, Depresión Moderada, Depresión Severa)
+* Puede modelarse ocupando la *escala completa* (0 a 27), de manera *binaria*  (Puntajes $\geq$ 10), o *cuatro categorías de severidad* (Depresión Mínima, Depresión Media, Depresión Moderada, Depresión Severa)
 
 ---
-# Variaciones longitudinales en la sintomatología depresiva
+
+class: center, middle
+
+# Variaciones longitudinales en la sintomatología depresiva 
+
 
 
 ---
@@ -121,7 +139,7 @@ Los items del cuarto al sexto son (4) *Se ha sentido cansado(a) o con poca energ
 grafo_long(c("s11_07_rec","s11_08_rec","s11_09_rec"), c("Dificultad concentración","Inquietitud o sentirse lento","Pensar en dañarse"))
 ```
 
-Los últimos tres items de la escala son (7) *Ha tenido dificultad para concentrarse en cosas tales como leer el periódico o ver televisión* y (8) *¿Se ha estado moviendo o hablando tan lento que otras personas podrían notarlo?, o por el contrario- ha estado tan inquieto(a) o agitado(a), que se ha estado moviendo mucho más de lo normal* y finalmente (9) *Ha pensado que estaría mejor muerto(a) o se le ha ocurrido lastimarse de alguna manera*. 
+Los últimos tres items de la escala son: .small[ (7) *Ha tenido dificultad para concentrarse en cosas tales como leer el periódico o ver televisión* , (8) *¿Se ha estado moviendo o hablando tan lento que otras personas podrían notarlo?, o por el contrario- ha estado tan inquieto(a) o agitado(a), que se ha estado moviendo mucho más de lo normal* y finalmente (9) *Ha pensado que estaría mejor muerto(a) o se le ha ocurrido lastimarse de alguna manera.*] 
 
 ---
 
@@ -146,6 +164,23 @@ muestra_1%>%
 
 ---
 
+# Trayectorias empíricas de puntajes PHQ-9
+
+
+```{r}
+set.seed(1994)
+filter(muestra_1, idencuesta %in% sample(unique(muestra_1$idencuesta),9))%>%
+  ggplot(aes(x=ola,y=s11_phq9,group=idencuesta))+
+  geom_smooth(se=FALSE)+
+  geom_point()+
+  labs(y="Puntaje PHQ-9",
+       x="Año del Estudio")+
+    facet_wrap(~idencuesta)+
+  theme_classic()
+```
+
+---
+
 ### Diferencias en la sintomatología depresiva de los partcipantes ELSOC
 
 Nos centraremos en tres aspectos principales:
@@ -153,7 +188,7 @@ Nos centraremos en tres aspectos principales:
 * **Socioeconómica**:
   * *Género*, *Actividad Ocupacional*, *Nivel Educacional*. 
 * **Salud Física**:
-  * *Edad*, *Índice de Masa Corporal*, *Actividad física.*
+  * *Edad*, *Índice de Masa Corporal*, *Frecuencia de actividad física.*
 * **Apoyo Social**:
   * *Frecuencia para hablar problemas con amigos o familiares*.
 
@@ -183,7 +218,7 @@ grafo_media('m02_fac')
 grafo_mediacion(muestra_1,'m02_fac','m0_sexo_fac')
 ```
 
-Acá se muestra la proporción de personas con puntajes mayores o iguales a 10 (Referencia, mejor sensitividad para detectar )
+Acá se muestra la proporción de personas con puntajes mayores o iguales a 10 (Levis et. al, 2019: mejor sensitividad para detectar )
 
 ---
 
@@ -281,57 +316,41 @@ ggplot(filter(tabla_mlg,!(coef=='Intercepto')),aes(y=coef,x=valor,color=factor(t
 ```
 
 ---
-
-# Regresión Lineal Mixta
-
-```{r}
-tabla_IC <- readRDS("MODELOS/mlm_tabla_ic.RDS")
-tabla_mlm<-tibble(coef=c(var_coefs,'Tiempo'),
-              valor= summary(mlm_multi)$coefficients[,1],
-              L=tabla_IC[-c(1,2),1],
-              U=tabla_IC[-c(1,2),2])
-
-tabla_mlm$tipo_var <- factor(with(tabla_mlm,
-     case_when(
-       (L>0&U>0) ~2,
-       (L<0&U<0)~3,
-       TRUE~1)),
-      labels = c('NS','Riesgo','Protector'))
-```
-
-```{r}
-ggplot(filter(tabla_mlm,!(coef=='Intercepto')),aes(y=coef,x=valor,color=factor(tipo_var)))+
-  geom_point()+
-  geom_errorbar(aes(xmin=L, xmax=U), width=.2)+
-  scale_color_viridis(discrete = TRUE,option = "D")+
-  geom_vline(xintercept = 0,linetype="dashed")+
-  labs(y='Categoría',
-       x='Valor Cooeficiente',
-       color=element_blank())+
-  theme_classic()+
-    theme(legend.position = 'top')
-```
-
----
-
 # Interacciones de las variables y el tiempo
 
----
+¿Qué grupos tienen patrones que difieren sistemáticamente del resto de personas?
 
+* **Actividad Ocupacional**: *Otras Categorías* Parten más alto, y suben sus puntajes de manera elevada
+* **Edad**: Factor protector de la edad disminuye a lo largo del estudio
+* **Apoyo Social**: Factor protector de hablar siempre o casi siempre de problemas disminuye con el tiempo
+
+---
 # Limitaciones
 
-* Datos Faltantes
-* Correlación de observaciones por diseño muestral
-* Distintas probabilidades de selección de las observaciones
+* Datos Faltantes (No respuesta al ítem y Atrición).
+* Correlación de observaciones por diseño muestral.
+* Distintas probabilidades de selección de las observaciones (Queremos dar más peso a quienes tenían menos posibilidades de responder).
 
 ---
-
 # Conclusiones
 
 * Existen opciones interesantes para modelar las trayectorias de sintomatología depresiva en Chile
 * La escala PHQ-9 entrega distintas posibilidades de modelamiento.
-* Datos parecen mostrar que las diferencias entre entrevistados se da más en los valores iniciales, pero estas se disipan en el tiempo (Regresión a la media).
-* Para ocupar plenamente el poder de ELSOC, se requiere un adecuado tratamiento de los datos faltantes
-* Para hacer una buena estimación poblacional se requiere tratar el diseño muestral complejo y las probabilidades de selección de los entrevistados
+* Se abre la pregunta *¿Las desigualdades sociales son más fuertes en el punto de partida de las personas?*, o *¿Son más evidentes en cómo las personas cambian en el tiempo?*
+* Para ocupar plenamente el poder de ELSOC se requiere un adecuado tratamiento de los datos faltantes.
+* Para hacer una buena estimación poblacional se requiere tratar el diseño muestral complejo y las probabilidades de selección de los entrevistados.
 ---
----
+
+# Contacto!
+
+.pull-left[
+
+Carlos Delgado González 
+]
+
+.pull-right[
+carlo.delgado@mat.uc.cl
+]
+
+.footnote[[Pueden ver la presentación aquí](link)]
+
