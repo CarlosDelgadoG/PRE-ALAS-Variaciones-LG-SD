@@ -2,6 +2,7 @@
 title: "Variaciones longitudinales de la sintomatología depresiva"
 subtitle: "XI Congreso Chileno de Sociología"
 author: "Carlos Delgado G."
+date: "29 de Abril 2022"
 output:
   xaringan::moon_reader:
     css: xaringan-themer.css
@@ -99,7 +100,7 @@ bm_long <- select(muestra_1, idencuesta,ola_num,s11_phq9,s11_phq9_bin, !!var_pre
 
 # Sobre la escala Patient Health Questionnaire 9
 
-* Diseñada para ser una medida de severidad y detección de la sintomatología depresiva de un paciente.
+* (Kroenke et. al, 2001) Diseñada para ser una medida de severidad y detección de la sintomatología depresiva de un paciente.
 * Mide la persistencia en las últimas dos  semanas de 9 items que reflejan los síntomas del DSM-IV.
 * Puede modelarse ocupando la *escala completa* (0 a 27), de manera *binaria*  (Puntajes $\geq$ 10), o *cuatro categorías de severidad* (Depresión Mínima, Depresión Media, Depresión Moderada, Depresión Severa)
 
@@ -332,6 +333,7 @@ ggplot(filter(tabla_mlg,!(coef=='Intercepto')),aes(y=coef,x=valor,color=factor(t
 * Distintas probabilidades de selección de las observaciones (Queremos dar más peso a quienes tenían menos posibilidades de responder).
 
 ---
+class: center
 # Conclusiones
 
 * Existen opciones interesantes para modelar las trayectorias de sintomatología depresiva en Chile
@@ -341,16 +343,20 @@ ggplot(filter(tabla_mlg,!(coef=='Intercepto')),aes(y=coef,x=valor,color=factor(t
 * Para hacer una buena estimación poblacional se requiere tratar el diseño muestral complejo y las probabilidades de selección de los entrevistados.
 ---
 
-# Contacto!
+class: center, middle
+# ¡Muchísimas gracias!
 
+## Contacto
 .pull-left[
 
 Carlos Delgado González 
+
+Sociólogo UCH, Diplomado Estadística Aplicada UDEC, Mg (c) Estadística UC
 ]
 
 .pull-right[
 carlo.delgado@mat.uc.cl
 ]
 
-.footnote[[Pueden ver la presentación aquí](link)]
+.footnote[[El repositorio de la presentación está en Github!](https://github.com/CarlosDelgadoG/PRE-ALAS-Variaciones-LG-SD)]
 
