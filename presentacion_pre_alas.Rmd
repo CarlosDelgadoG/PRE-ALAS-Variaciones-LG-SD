@@ -332,7 +332,7 @@ ggplot(filter(tabla_mlg,!(coef=='Intercepto')),aes(y=coef,x=valor,color=factor(t
 
 * Datos Faltantes (No respuesta al ítem y Atrición).
 * Correlación de observaciones por diseño muestral.
-* Distintas probabilidades de selección de las observaciones (Queremos dar más peso a quienes tenían menos posibilidades de responder).
+* Distintas probabilidades de selección de las observaciones (Queremos dar más peso a quienes tenían menos probabilidad de responder).
 
 ---
 class: center
