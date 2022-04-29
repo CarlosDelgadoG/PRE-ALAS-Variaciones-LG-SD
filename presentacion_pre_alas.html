@@ -54,8 +54,8 @@ class: center, middle, inverse, title-slide
 # Motivación II: Depresión v/s sintomatología depresiva
 
 * La depresión representa una alta carga en términos financieros, la discapacidad y el sufrimiento que genera.
-* *Jimenez et. al 2020:* Aparte de la **depresión** como trastorno clínico, la **sintomatología depresiva** nos da un indicio del estrés sicosocial que afecta a una comunidad en un momento determinado.
 * **Sintomatología depresiva** como algo que toda una comunidad padece en cierto grado.
+* *Jimenez et. al 2020:* Aparte de la **depresión** como trastorno clínico, la **sintomatología depresiva** nos da un indicio del estrés sicosocial que afecta a una comunidad en un momento determinado.
 * Se hace urgente **caracterizar** las distintas maneras que hay de experimentar la sintomatología depresiva. No sólo entre grupos de personas, *sino dentro de la misma persona en distintos puntos del tiempo.* 
 
 ---
@@ -66,7 +66,7 @@ class: center, middle, inverse, title-slide
 
 * Es un proyecto del Centro de Estudios de Conflicto y Cohesión Social (COES)
 * Aplicado desde el 2016 hasta hoy &lt;sup&gt;1&lt;/sup&gt; .
-* Se coompone de siete Módulos (entre ellos *Salud y Bienestar*).
+* Se coompone de siete módulos (entre ellos *Salud y Bienestar*).
 * Cerca de 3000 observaciones y más de 200  variables
 
 ]
@@ -83,7 +83,7 @@ class: center, middle, inverse, title-slide
 
 # Sobre la escala Patient Health Questionnaire 9
 
-* (Kroenke et. al, 2001) Diseñada para ser una medida de severidad y detección de la sintomatología depresiva de un paciente.
+* (Kroenke et. al, 2001) Diseñada para ser una medida de severidad de la sintomatología depresiva de un paciente y de detección de un episodio depresivo mayor.
 * Mide la persistencia en las últimas dos  semanas de 9 items que reflejan los síntomas del DSM-IV.
 * Puede modelarse ocupando la *escala completa* (0 a 27), de manera *binaria*  (Puntajes `\(\geq\)` 10), o *cuatro categorías de severidad* (Depresión Mínima, Depresión Media, Depresión Moderada, Depresión Severa)
 
@@ -165,7 +165,8 @@ Nos centraremos en tres aspectos principales:
 
 &lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-8-1.png" width="95%" style="display: block; margin: auto;" /&gt;
 
-Acá se muestra la proporción de personas con puntajes mayores o iguales a 10 (Levis et. al, 2019: mejor sensitividad para detectar )
+.footnote[Acá se muestra la proporción de personas con puntajes mayores o iguales a 10 (Levis et. al, 2019: mejor sensitividad para detectar un EDM)]
+
 
 ---
 
@@ -203,7 +204,7 @@ Acá se muestra la proporción de personas con puntajes mayores o iguales a 10 (
 # Opciones de modelamiento
 
 * Regresión Lineal Normal
-* Regresión Logística (Puntajes `\(\geq 10\)`)
+* **Regresión Logística (Puntajes `\(\geq 10\)`)**
 * Regresión Binomial
 * Regresión Multinomial Ordinal (Sobre `\(4\)` categorías de severidad)
 
@@ -217,6 +218,7 @@ Acá se muestra la proporción de personas con puntajes mayores o iguales a 10 (
 
 &lt;img src="presentacion_pre_alas_files/figure-html/unnamed-chunk-16-1.png" width="95%" style="display: block; margin: auto;" /&gt;
 
+.footnote[Una regresión logística modela la probabilidad de un evento. En este caso, la probabilidad de obtener un puntaje PHQ-9 mayor o igual a 10.]
 ---
 # Interacciones de las variables y el tiempo
 
@@ -237,11 +239,15 @@ Acá se muestra la proporción de personas con puntajes mayores o iguales a 10 (
 class: center
 # Conclusiones
 
-* Existen opciones interesantes para modelar las trayectorias de sintomatología depresiva en Chile
-* La escala PHQ-9 entrega distintas posibilidades de modelamiento.
-* Se abre la pregunta *¿Las desigualdades sociales son más fuertes en el punto de partida de las personas?*, o *¿Son más evidentes en cómo las personas cambian en el tiempo?*
-* Para ocupar plenamente el poder de ELSOC se requiere un adecuado tratamiento de los datos faltantes.
-* Para hacer una buena estimación poblacional se requiere tratar el diseño muestral complejo y las probabilidades de selección de los entrevistados.
+1) Existen opciones interesantes para modelar las trayectorias de sintomatología depresiva en Chile
+
+2) La escala PHQ-9 entrega distintas posibilidades de modelamiento.
+
+3) Se abre la pregunta *¿Las desigualdades sociales son más fuertes en el **punto de partida** de las personas?*, o *¿Son más evidentes en **cómo las personas cambian** en el tiempo?*
+
+4) Para ocupar plenamente el poder de ELSOC se requiere un adecuado tratamiento de los datos faltantes.
+
+5) Para hacer una buena estimación poblacional se requiere tratar el diseño muestral complejo y las distintas probabilidades de selección de los entrevistados.
 ---
 
 class: center, middle
